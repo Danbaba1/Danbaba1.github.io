@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Oladepo – Backend Developer</title>
+<meta name="description" content="Daniel Oladepo is a backend developer building fast, reliable APIs with Node.js, Express, PostgreSQL and MongoDB.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF1F5; --surface:#FFFFFF; --ink:#16202E; --muted:#556275;
+  --line:#D3DBE5; --accent:#0E7C6B; --accent-ink:#FFFFFF; --key:#0E5FA8; --str:#A0481E;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0F1620;--surface:#16202E;--ink:#E6ECF3;--muted:#98A6B8;--line:#27344A;--accent:#3FC3AC;--accent-ink:#06201B;--key:#7DB8F2;--str:#E8A878}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+header.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.nav strong{font-weight:600}
+.nav nav{display:flex;gap:22px;font-size:15px}
+.nav nav a{color:var(--muted);text-decoration:none}
+.nav nav a:hover{color:var(--ink)}
+
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;padding:56px 0 72px}
+h1{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;margin:0 0 20px;letter-spacing:-.02em;font-weight:600}
+.lede{font-size:1.15rem;color:var(--muted);margin:0 0 28px;max-width:34ch}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border-radius:6px;font-weight:500;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{filter:brightness(1.07)}
+
+.resp{background:var(--surface);border:1px solid var(--line);border-radius:10px;font-family:var(--mono);font-size:13.5px;overflow:hidden}
+.resp .bar{display:flex;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--line);color:var(--muted)}
+.resp .ok{color:var(--accent);font-weight:500}
+.resp pre{margin:0;padding:16px;overflow-x:auto;line-height:1.7}
+.k{color:var(--key)}.s{color:var(--str)}
+
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-size:1.6rem;margin:0 0 24px;letter-spacing:-.01em;font-weight:600}
+.about{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:start}
+.about img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:10px;border:1px solid var(--line);display:block}
+.about p{margin:0 0 16px;max-width:60ch}
+
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.stack div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px}
+.stack h3{margin:0 0 6px;font-size:1rem}
+.stack p{margin:0;color:var(--muted);font-size:.95rem}
+
+.projects{display:grid;gap:20px}
+.proj{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:24px;display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:start}
+.proj h3{margin:0;font-size:1.2rem}
+.proj .role{color:var(--muted);font-size:.95rem;margin:2px 0 10px}
+.proj p{margin:0 0 12px;max-width:62ch}
+.tags{display:flex;gap:8px;flex-wrap:wrap;padding:0;margin:0;list-style:none}
+.tags li{font-family:var(--mono);font-size:12.5px;border:1px solid var(--line);border-radius:4px;padding:2px 8px;color:var(--muted)}
+.proj a.link{font-weight:500;white-space:nowrap}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+ul.plain{margin:0;padding-left:20px}
+ul.plain li{margin-bottom:8px}
+
+.contact p{max-width:52ch;margin:0 0 24px}
+.contact .links{display:flex;gap:12px;flex-wrap:wrap}
+footer{padding:32px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+
+@media (max-width:760px){
+  .hero,.about,.two{grid-template-columns:1fr}
+  .about img{max-width:260px}
+  .hero{padding-top:24px}
+  .proj{grid-template-columns:1fr}
+  .nav nav{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="nav">
+    <strong>Daniel Oladepo</strong>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#stack">Stack</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>I build backend systems that are fast, reliable, and easy to scale.</h1>
+        <p class="lede">Backend developer turning product requirements into clean APIs and efficient data flows.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://github.com/Danbaba1">See my GitHub</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="resp" role="img" aria-label="Sample API response describing Daniel Oladepo">
+        <div class="bar"><span>GET /developers/daniel</span><span class="ok">200 OK</span></div>
+<pre>{
+  <span class="k">"name"</span>: <span class="s">"Daniel Oladepo"</span>,
+  <span class="k">"role"</span>: <span class="s">"Backend Developer Intern"</span>,
+  <span class="k">"company"</span>: <span class="s">"AsteriskRD Inc"</span>,
+  <span class="k">"stack"</span>: [<span class="s">"Node.js"</span>, <span class="s">"Express"</span>,
+            <span class="s">"PostgreSQL"</span>, <span class="s">"MongoDB"</span>],
+  <span class="k">"studying"</span>: [<span class="s">"DSA"</span>, <span class="s">"System design"</span>],
+  <span class="k">"openTo"</span>: <span class="s">"Junior Backend roles"</span>
+}</pre>
+      </div>
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="about">
+        <img src="photo.jpg" alt="Portrait of Daniel Oladepo in a burgundy suit adjusting his tie" width="600" height="746">
+        <div>
+          <p>My work focuses on turning product requirements into well-structured APIs, efficient data flows, and clean backend architecture.</p>
+          <p>Right now I’m contributing to the TaskShift platform at AsteriskRD Inc, where I work on real features used in production: API design, authentication, database modeling, and performance improvements.</p>
+          <p>I also collaborate on early-stage products like Coinlyy and inventory tools, which has given me practical experience building systems from the ground up and working within real engineering workflows.</p>
+          <p>I’m a fast learner with a systematic approach to debugging, and I work well on a team.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <h2>What I work with</h2>
+      <div class="stack">
+        <div><h3>Node.js &amp; Express.js</h3><p>Building RESTful APIs.</p></div>
+        <div><h3>PostgreSQL &amp; MongoDB</h3><p>Data modeling and management.</p></div>
+        <div><h3>Socket.io</h3><p>Real-time applications.</p></div>
+        <div><h3>JWT &amp; Bcrypt</h3><p>Authentication and password security.</p></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <article class="proj">
+          <div>
+            <h3>TaskShift</h3>
+            <p class="role">Backend Developer Intern, AsteriskRD Inc</p>
+            <p>A platform with features used in production. I work on API design, authentication, database modeling, and performance improvements.</p>
+            <ul class="tags"><li>Node.js</li><li>Express</li><li>JWT</li><li>Database design</li></ul>
+          </div>
+        </article>
+        <article class="proj">
+          <div>
+            <h3>Coinlyy</h3>
+            <p class="role">Early-stage product, collaborator</p>
+            <p>Backend work on an early-stage product, building systems from the ground up within a real engineering workflow.</p>
+            <ul class="tags"><li>Node.js</li><li>Express</li><li>REST APIs</li></ul>
+          </div>
+          <!-- Replace the href below with the exact repo URL -->
+          <a class="link" href="https://github.com/Danbaba1">View on GitHub</a>
+        </article>
+        <article class="proj">
+          <div>
+            <h3>Inventory Management System</h3>
+            <p class="role">Startup project, collaborator</p>
+            <p>An inventory tool where I contribute to the backend: data models, APIs, and authentication.</p>
+            <ul class="tags"><li>Node.js</li><li>Express</li><li>MongoDB</li><li>JWT</li></ul>
+          </div>
+          <!-- Replace the href below with the exact repo URL -->
+          <a class="link" href="https://github.com/Danbaba1">View on GitHub</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="two">
+        <div>
+          <h2>What I bring</h2>
+          <ul class="plain">
+            <li>A fast learner who adapts quickly to new technologies</li>
+            <li>A problem-solver with a systematic debugging approach</li>
+            <li>A team player with a collaborative mindset</li>
+            <li>A passion for scalable backend solutions</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Always learning</h2>
+          <p>I’m deepening my understanding of data structures, algorithms, and system design principles.</p>
+          <p>I’m open to Junior Backend Developer roles where I can contribute while continuing to grow under experienced mentors.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Let’s connect</h2>
+      <p>If you’re looking for an eager, honest, and hardworking junior developer, send me a message.</p>
+      <div class="links">
+        <a class="btn primary" href="mailto:oladepodaniel000@gmail.com">oladepodaniel000@gmail.com</a>
+        <a class="btn" href="https://github.com/Danbaba1">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/daniel-oladepo">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="yr">2026</span> Daniel Oladepo</footer>
+</div>
+<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+</body>
+</html>
